@@ -4,140 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alista tu PC</title>
-  <style>
-    /* Reset y tipografía */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #111;
-    }
-
-    /* Header y navegación */
-    header {
-      background-color: #000;
-      color: #39ff14;
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom: 2px solid #39ff14;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 15px;
-    }
-    /* Botones de navegación */
-    nav a {
-      display: inline-block;
-      background-color: #111;
-      color: #39ff14;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 20px;
-      border: 2px solid #39ff14;
-      border-radius: 25px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    nav a:hover {
-      background-color: #39ff14;
-      color: #000;
-    }
-    /* Botones vacíos para futuros íconos */
-    nav a.icon-btn {
-      padding: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Main y artículos */
-    main {
-      padding: 30px 20px;
-    }
-    .articulo {
-      background-color: #fff;
-      border: 2px solid #000;
-      margin-bottom: 30px;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .articulo h2 {
-      color: #000;
-      margin-bottom: 10px;
-    }
-    .articulo p {
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-    .articulo a {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #000;
-      color: #39ff14;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border: 2px solid #39ff14;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .articulo a:hover {
-      background-color: #39ff14;
-      color: #000;
-    }
-    .detalle {
-      display: none;
-      background-color: #f9f9f9;
-      margin-top: 15px;
-      padding: 15px;
-      border-left: 4px solid #39ff14;
-      border-radius: 10px;
-      color: #222;
-    }
-
-    /* Sección de bienvenida oculta por defecto */
-    #inicio {
-      display: none;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #000;
-      color: #39ff14;
-      text-align: center;
-      padding: 15px;
-      border-top: 2px solid #39ff14;
-    }
-  </style>
+  <meta name="description" content="Guía práctica para preparar tu PC e instalar Windows 11. Proyecto educativo." />
+  <link rel="icon" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header>
-    <h1>Alista tu PC</h1>
-    <nav>
-      <ul>
-        <li><a id="btn-inicio">Inicio</a></li>
-        <li><a href="#requisitos" class="icon-btn" id="nav-requisitos"></a></li>
-        <li><a href="#guia" class="icon-btn" id="nav-guia"></a></li>
-        <li><a href="#errores" class="icon-btn" id="nav-errores"></a></li>
-      </ul>
-    </nav>
+    <div class="header-inner">
+      <h1>Alista tu PC</h1>
+      <nav>
+        <ul>
+          <li><a id="btn-inicio" href="#" role="button">Inicio</a></li>
+          <li><a href="#requisitos">Requisitos</a></li>
+          <li><a href="#guia">Guía</a></li>
+          <li><a href="#errores">Errores</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="articulo" id="inicio">
+    <section class="articulo" id="inicio" aria-hidden="true">
       <h2 id="saludo"></h2>
       <p>Esta página web fue creada con fines educativos y de aprendizaje personal.</p>
       <p>El contenido ha sido generado con asistencia de inteligencia artificial y puede contener errores o imprecisiones.</p>
@@ -146,8 +34,8 @@
     <section class="articulo" id="requisitos">
       <h2>¿Tu PC es compatible con Windows 11?</h2>
       <p>Descubre los requisitos mínimos y cómo verificar si tu equipo puede actualizarse.</p>
-      <a id="btn-requisitos">Ver requisitos</a>
-      <div class="detalle" id="detalle-requisitos">
+      <button class="cta" id="btn-requisitos" aria-controls="detalle-requisitos" aria-expanded="false">Ver requisitos</button>
+      <div class="detalle" id="detalle-requisitos" hidden>
         <p><strong>Requisitos mínimos:</strong> CPU 1 GHz (2+ núcleos), 4 GB de RAM, 64 GB de almacenamiento, TPM 2.0, UEFI con arranque seguro, DirectX 12/WDDM 2.0.</p>
         <p><strong>Verificación:</strong> Usa PC Health Check o Configuración → Sistema → Acerca de.</p>
       </div>
@@ -156,8 +44,8 @@
     <section class="articulo" id="guia">
       <h2>Guía paso a paso para instalar Windows 11</h2>
       <p>Aprende a actualizar desde Windows 10 o hacer una instalación limpia de forma segura.</p>
-      <a id="btn-guia">Leer guía</a>
-      <div class="detalle" id="detalle-guia">
+      <button class="cta" id="btn-guia" aria-controls="detalle-guia" aria-expanded="false">Leer guía</button>
+      <div class="detalle" id="detalle-guia" hidden>
         <p><strong>1. Verificar requisitos:</strong> Comprueba CPU, RAM, almacenamiento, TPM 2.0, UEFI, DirectX 12, pantalla HD, Internet y cuenta Microsoft.</p>
         <p><strong>2. Hacer copia de seguridad:</strong> Respalda archivos y configuraciones en OneDrive, Google Drive o disco externo.</p>
         <p><strong>3. Elegir método de instalación:</strong> Actualiza desde Windows 10, usa el Asistente de Windows 11 o prepara un USB booteable.</p>
@@ -172,8 +60,8 @@
     <section class="articulo" id="errores">
       <h2>Errores comunes al actualizar y cómo solucionarlos</h2>
       <p>¿Problemas durante la instalación? Aquí tienes soluciones efectivas.</p>
-      <a id="btn-errores">Solucionar errores</a>
-      <div class="detalle" id="detalle-errores">
+      <button class="cta" id="btn-errores" aria-controls="detalle-errores" aria-expanded="false">Solucionar errores</button>
+      <div class="detalle" id="detalle-errores" hidden>
         <p><strong>TPM:</strong> Actívalo en BIOS/UEFI bajo “Seguridad”.</p>
         <p><strong>CPU no soportada:</strong> Revisa la lista oficial o actualiza tu procesador.</p>
         <p><strong>Espacio insuficiente:</strong> Elimina temporales o usa la herramienta de limpieza de disco.</p>
@@ -186,50 +74,6 @@
     <p>&copy; 2025 Alista tu PC. Proyecto personal de aprendizaje web.</p>
   </footer>
 
-  <script>
-    // Saludo inclusivo según género
-    const generoUsuario = 'neutro'; // 'masculino', 'femenino' o 'neutro'
-    const saludoEl = document.getElementById('saludo');
-    if (generoUsuario === 'masculino') {
-      saludoEl.textContent = 'Bienvenido a Alista tu PC';
-    } else if (generoUsuario === 'femenino') {
-      saludoEl.textContent = 'Bienvenida a Alista tu PC';
-    } else {
-      saludoEl.textContent = 'Bienvenid@ a Alista tu PC';
-    }
-
-    // Toggle detalle en cada sección
-    function toggle(idDetalle) {
-      const el = document.getElementById(idDetalle);
-      el.style.display = el.style.display === 'block' ? 'none' : 'block';
-    }
-    document.getElementById('btn-requisitos')
-      .addEventListener('click', () => toggle('detalle-requisitos'));
-    document.getElementById('btn-guia')
-      .addEventListener('click', () => toggle('detalle-guia'));
-    document.getElementById('btn-errores')
-      .addEventListener('click', () => toggle('detalle-errores'));
-
-    // Toggle Inicio / Volver y mostrar/ocultar secciones
-    const btnInicio = document.getElementById('btn-inicio');
-    const bienvenida = document.getElementById('inicio');
-    const windowsSections = [
-      document.getElementById('requisitos'),
-      document.getElementById('guia'),
-      document.getElementById('errores')
-    ];
-    btnInicio.addEventListener('click', () => {
-      const isVisible = bienvenida.style.display === 'block';
-      if (!isVisible) {
-        bienvenida.style.display = 'block';
-        windowsSections.forEach(sec => sec.style.display = 'none');
-        btnInicio.textContent = '🔙 Volver';
-      } else {
-        bienvenida.style.display = 'none';
-        windowsSections.forEach(sec => sec.style.display = 'block');
-        btnInicio.textContent = 'Inicio';
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
